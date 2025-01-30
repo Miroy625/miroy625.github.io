@@ -13,12 +13,6 @@
             background-color: #f4f4f4;
             color: #333;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
         .container {
             max-width: 1100px;
             margin: auto;
@@ -58,10 +52,8 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Base Linux System and Network Map</h1>
-    </header>
     <div class="container">
+        <h1>Base Linux System and Network Map</h1>
         <h2>Setting Up a Base Linux System</h2>
         <p>This project involves establishing an Ubuntu virtual machine as a base system, including various installation options (virtual, physical, and cloud). The goal is to develop a network map to monitor connected devices and maintain system security.</p>
 
@@ -93,13 +85,6 @@ Nmap scan report for 192.168.1.1
 Host is up (0.00013s latency).
 MAC Address: AA:BB:CC:DD:EE:FF (Vendor Name)
 </code></pre>
-
-        <h2>Images</h2>
-        <h3>Small Image</h3>
-        <img src="https://github.githubassets.com/images/icons/emoji/octocat.png" alt="Octocat">
-
-        <h3>Large Image</h3>
-        <img src="https://guides.github.com/activities/hello-world/branching.png" alt="Branching Example">
 
         <h2>Definitions</h2>
         <dl>
