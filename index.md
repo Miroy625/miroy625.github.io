@@ -5,7 +5,7 @@ description: "Welcome to my Security Portfolio, a collection of projects that hi
 image: "projects/media/securityportfoliobanner.png"
 ---
 
-## Ubuntu System Hardening Project
+# Ubuntu System Hardening Project
 
 [Check out Project 1!](projects/project1.md)
 
@@ -31,7 +31,7 @@ Briefly secured an Ubuntu system by updating packages, managing users, and confi
 Enhanced system security by reducing the attack surface and reinforcing access control policies.
 
 
-## Architecting and Segmenting a Network
+# Architecting and Segmenting a Network
 
 [Check out Project 2!](projects/project2.md)
 
