@@ -102,7 +102,7 @@ ssh-copy-id ddr7@my_ubuntu_ip
 ```
 ![ubuntuhardeningscrn2](media/IMG_7382.jpeg)
 
-I won't post my SSH key for the world to see, so here's a picture of one of my favorite Japanese dogs :)
+I won't post my SSH key for the world to see, so here's a picture of one of my favorite Japanese dogs 😄
    
 ## Part B: Disable Password Authentication and Root Login
 
@@ -123,6 +123,14 @@ sudo systemctl restart ssh
 
 ![ubuntuhardeningscrn2](media/ubuntuhardeningscrn5.png)
 
+After this point, I started to run into issues. Even after setting `PasswordAuthentication no` in `/etc/ssh/sshd_config`, the server still asked for a password🤔 and the system kept denying access with a `Permission denied (publickey)` error, even after adding a key. and a bunch of other issues as you can see in the screenshot below ⬇️
+
+![ubuntuhardeningscrn2](media/ubuntuhardeningscrn6.png)
+
+![ubuntuhardeningscrn2](media/ubuntuhardeningscrn7.png)
+
+I ended up going to sleep, waking up with a fresh mind and found a solution. (several. lol.) ((everything went wrong))
+
 ---
 
 ## Testing and Validation
@@ -131,62 +139,48 @@ sudo systemctl restart ssh
 Verified that password-based login is disabled and SSH key-based login works correctly
 
 - Hardened the Ubuntu system against unauthorized access.
-- Configured network monitoring with Nmap and net-tools.
 - Implemented SSH key-based authentication to enhance remote access security.
 
 ---
 
 ## Challenges and Solutions
 
-### Challenge 1: SSH key-based authentication failed during initial setup.  
-**Solution:** Corrected `.ssh` directory permissions on the client and server.
+### Challenge 1: SSH server continued prompting for a password  
+**Solution:** Removed deprecated options in `/etc/ssh/sshd_config`, confirmed `PasswordAuthentication no` was set, and restarted the SSH service to apply changes.
 
-### Challenge 2: Incomplete Nmap results due to firewall rules.  
-**Solution:** Adjusted firewall to allow full network scans temporarily for documentation.
+### Challenge 2: Public key authentication failed with ‘Permission denied (publickey)’ error 
+**Solution:** Verified that the public key was correctly added to `~/.ssh/authorized_keys` on the server. Corrected permissions for `.ssh` and `authorized_keys` (700 and 600 respectively) and ensured ownership was properly set.
+
+### Challenge 3: SSH server unable to load host key
+**Solution:** Removed references to deprecated host keys (ssh_host_dsa_key) in `/etc/ssh/sshd_config` and generated missing keys using `ssh-keygen -A`.
+
+### Challenge 4: SSH client failed to authenticate using the key
+**Solution:** Generated a new ED25519 key pair, copied the public key to the server with `ssh-copy-id`, and tested authentication using `ssh -vvv` to trace the process.
+
+### Challenge 5: Configuration not applying correctly due to potential file overrides
+**Solution:** Checked for additional configuration files in `/etc/ssh/ssh_config.d/` and `/etc/ssh/sshd_config.d/`, ensuring no conflicting settings for `PasswordAuthentication` or `AuthorizedKeysFile`.
 
 ---
 
 ## Reflection and Future Improvements
 
 ### Reflection  
-This project deepened my understanding of system hardening, secure remote access, and network monitoring.
+This project deepened my understanding of system hardening, secure remote access, and asymmetric cryptography.
 
 ### Future Improvements  
-- Automate package updates and user management with shell scripts.  
-- Integrate with SIEM tools for advanced log analysis.
-
----
-
-## Sample Code and Configuration
-
-```bash
-# System update and package installation
-sudo apt update && sudo apt upgrade -y
-sudo apt install openssh-server nmap net-tools
-```
-
-```plaintext
-# Example SSH Configuration Changes
-PasswordAuthentication no
-PermitRootLogin no
-```
-
----
-
-## Definitions
-
-<dl>
-<dt>Linux</dt>
-<dd>An open-source operating system kernel used in various computing environments.</dd>
-<dt>Network Map</dt>
-<dd>A visual or textual representation of devices and their connections within a network.</dd>
-<dt>SSH</dt>
-<dd>Secure Shell, a protocol for secure remote login and communication over a network.</dd>
-</dl>
+- Automate package updates and user management with shell scripts.
+- Create scripts to automate SSH security checks (like weak permissions, configuration best practices).
+- Use tools to block repeated failed SSH login attempts.
+- Replace public key authentication with SSH certificates to simplify key management.
+- Periodically rotate SSH keys and enforce key expiration policies.
+- Enable multi-factor authentication (MFA) with security keys.
+- Disable weak cryptographic algorithms and enforce modern ciphers.
+- Record SSH sessions for audit purposes and integrate with SIEM tools.
+- Limit access by configuring IP allow lists in sshd_config.
 
 ---
 
 ## Conclusion
 
-This project demonstrates the process of securing an Ubuntu system through hardening practices. The network map and SSH configuration are crucial components for maintaining a secure infrastructure.
+This project successfully applied system hardening techniques to enhance Ubuntu security by updating packages, managing users, and configuring secure remote access. These measures have minimized the attack surface and vectors, reinforcing the system against unauthorized access.
 """
