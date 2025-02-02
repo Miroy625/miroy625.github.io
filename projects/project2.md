@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Chize's Portfolio of Security Projects"
+description: "This project involves designing and implementing a network segmentation strategy to enhance both security and performance. By dividing the network into isolated subnets using VLANs, different types of devices and trust zones can be separated, minimizing the risk of unauthorized access and optimizing traffic management."
+image: "media/securityportfoliobanner.png"
+---
+
 # Architecting and Segmenting a Network
 
 ## Overview
