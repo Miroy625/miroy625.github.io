@@ -63,60 +63,58 @@ Managed user accounts by adding, and assigning minimal permissions to ensure lea
 
 ### Commands Used  
 ```bash
-sudo adduser newuser
-sudo deluser username
-sudo usermod -aG sudo newuser
-sudo passwd newuser
+sudo adduser 
+sudo usermod -aG sudo 
+sudo passwd 
 ```
+![ubuntuhardeningscrn2](media/ubuntuhardeningscrn2.png)
 
 ---
 
-## Network Map
+## Configuring Hostname
 
 ### Description  
-Created a network map using Nmap to identify connected devices and services on the network.
+Changed the system’s hostname for easier identification.
 
-### Sample Command and Output  
+### Commands Used
 ```bash
-sudo nmap -sP 192.168.1.0/24
+hostname  
+sudo hostname  
 ```
-
-```plaintext
-Starting Nmap 7.80 ( https://nmap.org )
-Nmap scan report for 192.168.1.1
-Host is up (0.00013s latency).
-MAC Address: AA:BB:CC:DD:EE:FF (Vendor Name)
-```
+![ubuntuhardeningscrn2](media/ubuntuhardeningscrn3.png)
+I changed the hostname to ddr7 just because...
 
 ---
 
-## Securing Remote Access
+# Securing Remote Access (SSH)
+
+## Part A: Generate SSH Keys
 
 ### Description  
-Configured and hardened SSH access by enforcing key-based authentication and disabling password-based login for security.
+Got IP address, generated and installed SSH keys for secure, passwordless login.
 
-### Steps Performed  
-1. **Generate SSH Key Pair**  
-   ```bash
-   ssh-keygen
-   ```
+### Commands Used  
+```bash
+hostname -I
+ssh-keygen  
+ssh-copy-id user@your_ubuntu_ip
+```
    
-2. **Copy Public Key to Remote Host**  
-   ```bash
-   ssh-copy-id user@server_ip
-   ```
+## Part B: Disable Password Authentication and Root Login
 
-3. **Modify SSH Configuration**  
-   Edited `/etc/ssh/sshd_config`:  
-   ```plaintext
-   PasswordAuthentication no
-   PermitRootLogin no
-   ```
+### Description  
+Configured SSH to enforce key-based authentication and disabled direct root login.
 
-4. **Restart SSH Service**  
-   ```bash
-   sudo systemctl restart ssh
-   ```
+### Commands Used  
+Edited SSH configuration file & restarted SSH
+```bash
+sudo nano /etc/ssh/sshd_config
+
+PasswordAuthentication no  
+PermitRootLogin no
+
+sudo systemctl restart ssh  
+```
 
 ---
 
