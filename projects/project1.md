@@ -25,7 +25,7 @@ This project involves securing an Ubuntu virtual machine by applying system upda
 
 ## Tools and Technologies
 
-- **Operating System:** Ubuntu 22.04 LTS  
+- **Operating System:** Ubuntu 24.04.1 LTS  
 - **Package Management:** APT  
 - **Security Tools:** Nmap, OpenSSH, UFW (Uncomplicated Firewall)  
 - **Utilities:** SSH, Nano, Systemctl  
