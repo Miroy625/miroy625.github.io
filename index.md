@@ -1,9 +1,11 @@
 ---
 layout: default
+title: "Chize's Portfolio of Security Projects"
+description: "Welcome to my Security Portfolio, a collection of projects that highlight my expertise in security. Each project reflects my commitment to protecting digital assets, solving complex security challenges, and implementing proactive defense strategies. Through these projects, I demonstrate my ability to adapt to evolving cyber threats, leverage cutting-edge tools and frameworks, and apply best practices to ensure the security and resilience of systems and networks."
 image: "projects/media/securityportfoliobanner.png"
 ---
 
-## Project Title: Ubuntu System Hardening Project
+## Ubuntu System Hardening Project
 
 [Check out Project 1!](projects/project1.md)
 
@@ -29,7 +31,7 @@ Briefly secured an Ubuntu system by updating packages, managing users, and confi
 Enhanced system security by reducing the attack surface and reinforcing access control policies.
 
 
-## Project Title: Architecting and Segmenting a Network
+## Architecting and Segmenting a Network
 
 [Check out Project 2!](projects/project2.md)
 
