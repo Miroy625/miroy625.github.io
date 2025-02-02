@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Chize's Portfolio of Security Projects"
+description: "This project involves securing an Ubuntu virtual machine by applying system updates, configuring packages, managing users, and locking down remote access through SSH. Below are the documented steps and tasks performed.
+"
+image: "media/securityportfoliobanner.png"
+---
+
 # Hardening a Base Ubuntu System
 
 This project involves securing an Ubuntu virtual machine by applying system updates, configuring packages, managing users, and locking down remote access through SSH. Below are the documented steps and tasks performed.
