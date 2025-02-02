@@ -13,13 +13,13 @@ This project involves securing an Ubuntu virtual machine by applying system upda
 
 ## Security Policy Outline Created for Hardening Process
 
-![security policy pt1](securitypolicy1.png)
+![security policy pt1](securitypolicy1.jpeg)
 
-![security policy pt2](securitypolicy2.png)
+![security policy pt2](securitypolicy2.jpeg)
 
-![security policy pt3](securitypolicy3.png)
+![security policy pt3](securitypolicy3.jpeg)
 
-![security policy pt4](securitypolicy4.png)
+![security policy pt4](securitypolicy4.jpeg)
 
 ---
 
