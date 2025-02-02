@@ -7,6 +7,7 @@ This project involves securing an Ubuntu virtual machine by applying system upda
 ## Project Overview
 
 **Title:** Hardening a Base Ubuntu System  
+
 **Objective:** Configure and secure an Ubuntu system by applying updates, configuring SSH, managing users, and securing remote access.
 
 ---
