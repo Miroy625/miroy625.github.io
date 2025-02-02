@@ -82,6 +82,7 @@ hostname
 sudo hostname  
 ```
 ![ubuntuhardeningscrn2](media/ubuntuhardeningscrn3.png)
+
 I changed the hostname to ddr7 just because...
 
 ---
