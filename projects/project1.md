@@ -1,102 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base Linux System and Network Map</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        h1, h2, h3 {
-            color: #444;
-        }
-        code {
-            background: #eaeaea;
-            padding: 4px;
-            border-radius: 4px;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        ul, ol {
-            margin: 10px 0;
-            padding-left: 40px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Base Linux System and Network Map</h1>
-        <h2>Setting Up a Base Linux System</h2>
-        <p>This project involves establishing an Ubuntu virtual machine as a base system, including various installation options (virtual, physical, and cloud). The goal is to develop a network map to monitor connected devices and maintain system security.</p>
+---
+layout: default
+title: Hardening a Base Ubuntu System
+---
 
-        <h3>Installation Options</h3>
-        <ul>
-            <li>Virtual Installation (e.g., VMware, VirtualBox)</li>
-            <li>Physical Installation (on dedicated hardware)</li>
-            <li>Cloud Installation (e.g., AWS, Azure)</li>
-        </ul>
+# Hardening a Base Ubuntu System
 
-        <h3>Network Map</h3>
-        <p>The network map provides a visual representation of connected devices, including IP addresses, MAC addresses, and device types. This helps maintain system security and allows for real-time monitoring of network traffic.</p>
+This project involves securing an Ubuntu virtual machine by applying system updates, configuring packages, managing users, and locking down remote access through SSH. Below are the documented steps and tasks performed.
 
-        <h2>Project Features</h2>
-        <ul>
-            <li>System Configuration</li>
-            <li>Device Monitoring</li>
-            <li>Security Auditing</li>
-            <li>Automated Alerts for Suspicious Activity</li>
-        </ul>
+---
 
-        <h2>Code Example</h2>
-        <pre><code>sudo apt update && sudo apt upgrade -y
-sudo apt install nmap net-tools</code></pre>
+## Project Overview
 
-        <h3>Sample Network Scan Output</h3>
-        <pre><code>Starting Nmap 7.80 ( https://nmap.org ) at 2025-01-30 12:00
+**Title:** Hardening a Base Ubuntu System  
+**Objective:** Configure and secure an Ubuntu system by applying updates, configuring SSH, managing users, and securing remote access.
+
+---
+
+## Tools and Technologies
+
+- **Operating System:** Ubuntu 22.04 LTS  
+- **Package Management:** APT  
+- **Security Tools:** Nmap, OpenSSH, UFW (Uncomplicated Firewall)  
+- **Utilities:** SSH, Nano, Systemctl  
+
+---
+
+## System Updates and Package Installation
+
+### Description  
+Updated the system and installed necessary packages using APT to enhance security and functionality.
+
+### Commands Used  
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install openssh-server nmap net-tools
+```
+
+### Installed Packages  
+- OpenSSH Server for secure remote access.  
+- Nmap and Net-tools for network analysis.
+
+---
+
+## User Management
+
+### Description  
+Managed user accounts by adding, deleting, and assigning minimal permissions to ensure least privilege.
+
+### Commands Used  
+```bash
+sudo adduser newuser
+sudo deluser username
+sudo usermod -aG sudo newuser
+```
+
+---
+
+## Network Map
+
+### Description  
+Created a network map using Nmap to identify connected devices and services on the network.
+
+### Sample Command and Output  
+```bash
+sudo nmap -sP 192.168.1.0/24
+```
+
+```plaintext
+Starting Nmap 7.80 ( https://nmap.org )
 Nmap scan report for 192.168.1.1
 Host is up (0.00013s latency).
 MAC Address: AA:BB:CC:DD:EE:FF (Vendor Name)
-</code></pre>
+```
 
-        <h2>Definitions</h2>
-        <dl>
-            <dt>Linux</dt>
-            <dd>An open-source operating system kernel used for various computing environments.</dd>
-            <dt>Network Map</dt>
-            <dd>A diagram or tool that shows the connections and devices within a network.</dd>
-        </dl>
+---
 
-        <h2>Conclusion</h2>
-        <p>This project demonstrates the process of setting up a secure, monitored Linux system with various installation options. The network map is a crucial component for maintaining security and visibility in an enterprise environment.</p>
+## Securing Remote Access
 
-    </div>
-</body>
-</html>
+### Description  
+Configured and hardened SSH access by enforcing key-based authentication and disabling password-based login for security.
+
+### Steps Performed  
+1. **Generate SSH Key Pair**  
+   ```bash
+   ssh-keygen
+   ```
+   
+2. **Copy Public Key to Remote Host**  
+   ```bash
+   ssh-copy-id user@server_ip
+   ```
+
+3. **Modify SSH Configuration**  
+   Edited `/etc/ssh/sshd_config`:  
+   ```plaintext
+   PasswordAuthentication no
+   PermitRootLogin no
+   ```
+
+4. **Restart SSH Service**  
+   ```bash
+   sudo systemctl restart ssh
+   ```
+
+---
+
+## Key Accomplishments
+
+- Hardened the Ubuntu system against unauthorized access.
+- Configured network monitoring with Nmap and net-tools.
+- Implemented SSH key-based authentication to enhance remote access security.
+
+---
+
+## Challenges and Solutions
+
+### Challenge 1: SSH key-based authentication failed during initial setup.  
+**Solution:** Corrected `.ssh` directory permissions on the client and server.
+
+### Challenge 2: Incomplete Nmap results due to firewall rules.  
+**Solution:** Adjusted firewall to allow full network scans temporarily for documentation.
+
+---
+
+## Reflection and Future Improvements
+
+### Reflection  
+This project deepened my understanding of system hardening, secure remote access, and network monitoring.
+
+### Future Improvements  
+- Automate package updates and user management with shell scripts.  
+- Integrate with SIEM tools for advanced log analysis.
+
+---
+
+## Sample Code and Configuration
+
+```bash
+# System update and package installation
+sudo apt update && sudo apt upgrade -y
+sudo apt install openssh-server nmap net-tools
+```
+
+```plaintext
+# Example SSH Configuration Changes
+PasswordAuthentication no
+PermitRootLogin no
+```
+
+---
+
+## Definitions
+
+<dl>
+<dt>Linux</dt>
+<dd>An open-source operating system kernel used in various computing environments.</dd>
+<dt>Network Map</dt>
+<dd>A visual or textual representation of devices and their connections within a network.</dd>
+<dt>SSH</dt>
+<dd>Secure Shell, a protocol for secure remote login and communication over a network.</dd>
+</dl>
+
+---
+
+## Conclusion
+
+This project demonstrates the process of securing an Ubuntu system through hardening practices. The network map and SSH configuration are crucial components for maintaining a secure infrastructure.
+"""
