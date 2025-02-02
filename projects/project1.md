@@ -183,4 +183,5 @@ This project deepened my understanding of system hardening, secure remote access
 ## Conclusion
 
 This project successfully applied system hardening techniques to enhance Ubuntu security by updating packages, managing users, and configuring secure remote access. These measures have minimized the attack surface and vectors, reinforcing the system against unauthorized access.
-"""
+
+---
