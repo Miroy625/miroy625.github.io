@@ -40,26 +40,33 @@ Updated the system and installed necessary packages using APT to enhance securit
 
 ### Commands Used  
 ```bash
-sudo apt update && sudo apt upgrade -y
-sudo apt install openssh-server nmap net-tools
+sudo apt update  
+sudo apt upgrade  
+sudo apt autoremove  
+sudo apt clean  
+sudo apt install openssh-server
 ```
 
+
 ### Installed Packages  
-- OpenSSH Server for secure remote access.  
-- Nmap and Net-tools for network analysis.
+- OpenSSH Server for secure remote access.
+
+  
+![ubuntuhardeningscrn1](media/ubuntuhardeningscrn1.png)
 
 ---
 
 ## User Management
 
 ### Description  
-Managed user accounts by adding, deleting, and assigning minimal permissions to ensure least privilege.
+Managed user accounts by adding, and assigning minimal permissions to ensure least privilege.
 
 ### Commands Used  
 ```bash
 sudo adduser newuser
 sudo deluser username
 sudo usermod -aG sudo newuser
+sudo passwd newuser
 ```
 
 ---
