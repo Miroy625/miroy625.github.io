@@ -98,11 +98,11 @@ Got IP address, generated and installed SSH keys for secure, passwordless login.
 ```bash
 hostname -I
 ssh-keygen  
-ssh-copy-id user@your_ubuntu_ip
+ssh-copy-id ddr7@my_ubuntu_ip
 ```
 ![ubuntuhardeningscrn2](media/IMG_7382.jpeg)
 
-I won't post my SSH key for the world to see so here's a picture of one of my favorite japanese dogs :)
+I won't post my SSH key for the world to see, so here's a picture of one of my favorite Japanese dogs :)
    
 ## Part B: Disable Password Authentication and Root Login
 
@@ -121,9 +121,14 @@ sudo systemctl restart ssh
 ```
 ![ubuntuhardeningscrn2](media/ubuntuhardeningscrn4.png)
 
+![ubuntuhardeningscrn2](media/ubuntuhardeningscrn5.png)
+
 ---
 
-## Key Accomplishments
+## Testing and Validation
+
+### Description
+Verified that password-based login is disabled and SSH key-based login works correctly
 
 - Hardened the Ubuntu system against unauthorized access.
 - Configured network monitoring with Nmap and net-tools.
