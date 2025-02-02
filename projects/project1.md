@@ -11,6 +11,16 @@ This project involves securing an Ubuntu virtual machine by applying system upda
 
 ---
 
+## Security Policy Outline Created for Hardening Process
+
+![security policy pt1](media/project1/securitypolicy1.png)
+![security policy pt2](media/project1/securitypolicy2.png)
+![security policy pt3](media/project1/securitypolicy3.png)
+![security policy pt4](media/project1/securitypolicy4.png)
+
+
+---
+
 ## Tools and Technologies
 
 - **Operating System:** Ubuntu 22.04 LTS  
