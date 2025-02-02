@@ -4,7 +4,7 @@ layout: default
 
 # Project Title: Ubuntu System Hardening Project
 
-[View Project 1](projects/project1.md)
+[Check out Project 1!](projects/project1.md)
 
 ## Overview:
 Briefly secured an Ubuntu system by updating packages, managing users, and configuring SSH to prevent unauthorized access.
@@ -30,5 +30,5 @@ Enhanced system security by reducing the attack surface and reinforcing access c
 
 # Project Title: Architecting and Segmenting a Network
 
-[View Project 1](projects/project2.md)
+[Check out Project 2!](projects/project2.md)
 
