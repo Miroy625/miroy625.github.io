@@ -100,6 +100,9 @@ hostname -I
 ssh-keygen  
 ssh-copy-id user@your_ubuntu_ip
 ```
+![ubuntuhardeningscrn2](media/IMG_7382.jpeg)
+
+I won't post my SSH key for the world to see so here's a picture of one of my favorite japanese dogs :)
    
 ## Part B: Disable Password Authentication and Root Login
 
@@ -116,6 +119,7 @@ PermitRootLogin no
 
 sudo systemctl restart ssh  
 ```
+![ubuntuhardeningscrn2](media/ubuntuhardeningscrn4.png)
 
 ---
 
