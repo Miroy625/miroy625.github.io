@@ -1,6 +1,6 @@
 ---
 layout: default
-image: "projects/media/securityportfoliobanner.png"
+image: "media/securityportfoliobanner.png"
 ---
 
 ## Project Title: Ubuntu System Hardening Project
