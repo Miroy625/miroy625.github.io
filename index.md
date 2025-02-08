@@ -31,7 +31,30 @@ Briefly secured an Ubuntu system by updating packages, managing users, and confi
 Enhanced system security by reducing the attack surface and reinforcing access control policies.
 
 
-# Architecting and Segmenting a Network
+
+# Deploying a Secure VPN Server on AWS
 
 [Check out Project 2!](projects/project2.md)
+
+## Overview:
+Deployed and configured a secure VPN server on AWS to provide encrypted access to cloud resources, ensuring secure data transmission and remote connectivity.
+
+## Key Objectives:
+- Launch an EC2 instance and configure a VPN server.
+- Implement SSH key-based authentication for secure remote access.
+- Configure VPN traffic routing to enhance security.
+
+## Steps Taken:
+1. Created and configured an AWS EC2 instance.
+2. Installed and set up OpenVPN Access Server.
+3. Generated and applied SSH key pairs for authentication.
+4. Configured VPN routing and verified secure client connections.
+
+## Technologies Used:
+- AWS EC2, AWS Free Tier
+- OpenVPN Access Server
+- SSH (Secure Shell)
+
+## Outcome:
+Successfully implemented a secure, scalable VPN solution on AWS, reducing the risk of unauthorized access and ensuring secure communication over the network.
 
