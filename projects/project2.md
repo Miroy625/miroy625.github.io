@@ -186,7 +186,7 @@ This project enhanced my understanding of deploying and managing secure infrastr
 - Enable multi-factor authentication (MFA) for both users and admin accounts.
 - Scale the project to deploy multiple VPN servers across different countries to provide better coverage and redundancy.
 - Consider using alternative, more cost-effective cloud services to reduce expenses while maintaining performance and security.
-(because <strong>MAN<strong> this can get expensive real quick lol)(I even had to tell my friends not to overuse the VPN to avoid breaking the bank))
+(because **MAN** this can get expensive real quick lol)(I even had to tell my friends not to overuse the VPN to avoid breaking the bank))
 
 ---
 
