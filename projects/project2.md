@@ -92,6 +92,12 @@ Configured the VPN server for secure traffic routing.
 
 ---
 
+![awsvpnscrn1](media/awsvpn4.png)
+Here is a screen showing firefox telling me that this is a self signed certificate. (normally you wouldn't proceed if you aren't setting something up lol)
+
+![awsvpnscrn1](media/awsvpn5.png)
+Here is a screen in the OpenVPN admin panel.
+
 ## Client Connection Setup
 
 ### Description  
