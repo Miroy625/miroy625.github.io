@@ -41,44 +41,6 @@ Here is a screen of SSH sucessfully connected & initial configuration finished.
 
 ---
 
-## Key Pair Management
-
-### Description  
-Created a secure key pair for passwordless authentication and restricted direct root access.
-
-### Commands Used  
-```bash
-ssh-keygen  
-ssh-copy-id -i ~/.ssh/vpn_key.pub ec2-user@<public-ip-address>
-```
-
-### Security Enhancements  
-- Configured SSH to enforce key-based authentication.
-- Disabled direct root login for improved security.
-
----
-
-## SSH Configuration
-
-### Description  
-Edited the SSH configuration to harden remote access.
-
-### Commands Used  
-```bash
-sudo nano /etc/ssh/sshd_config
-
-PasswordAuthentication no  
-PermitRootLogin no
-
-sudo systemctl restart ssh
-```
-
-### Issues and Solutions  
-- **Issue:** Password-based login was still active.  
-  **Solution:** Removed deprecated options in `/etc/ssh/sshd_config` and verified permissions on `.ssh/authorized_keys`.
-
----
-
 ## VPN Server Access and Routing Setup
 
 ### Description  
@@ -98,6 +60,66 @@ Here is a screen showing firefox telling me that this is a self signed certifica
 ![awsvpnscrn1](media/awsvpn5.png)
 Here is a screen in the OpenVPN admin panel.
 
+---
+
+## EC2 Security Settings
+
+### Description  
+Configured security groups to restrict access to trusted IP ranges and set up essential ports for OpenVPN and secure remote administration.
+
+### Steps Taken  
+1. **Security Group Configuration**:
+   - Restricted inbound rules for SSH (port 22) and OpenVPN (ports 943 and 945) to trusted IP ranges.
+   - Allowed public access only to HTTPS (port 443) for secure web services.
+
+2. **Security Group Rules**:
+   ```text
+   Port     Protocol   Source
+   22       TCP        <trusted-ip>/32
+   943      TCP        <trusted-ip>/32
+   945      TCP        <trusted-ip>/32
+   443      TCP        0.0.0.0/0
+   ```
+
+### Security Enhancements  
+- Reduced the risk of unauthorized access by restricting administrative ports to trusted IP addresses.
+- Hardened VPN and web service access by securing sensitive ports.
+
+---
+
+## Elastic IP Configuration
+
+### Description  
+Assigned a static Elastic IP to the EC2 instance running the OpenVPN server to maintain a consistent IP address across restarts.
+
+### Steps Taken  
+1. Created an Elastic IP in the EC2 console.
+2. Associated the Elastic IP with the running EC2 instance.
+
+### Security Enhancements  
+- Ensured stable client connectivity by preventing IP changes on server restarts.
+- Reduced the risk of configuration errors with consistent IP address usage in OpenVPN.
+
+---
+
+## OpenVPN User Permissions
+
+### Description  
+Created an admin and user group, changed passwords for both admin and user accounts.
+
+### Steps Taken  
+1. Created an **admin group** and added administrative accounts in the OpenVPN Admin Panel.
+2. Created a **user group** and added standard VPN user accounts.
+3. Changed the passwords for both admin and user accounts for enhanced security.
+
+### Security Enhancements  
+- Improved security by organizing users into groups and enforcing password changes.
+- Reduced risk by limiting user access and updating connection profiles with a static IP.
+
+---
+
+
+
 ## Client Connection Setup
 
 ### Description  
@@ -105,24 +127,19 @@ Set up client devices to connect to the VPN server.
 
 ### Steps  
 1. Navigated to the user portal at `https://<public-ip>:943`.
-2. Downloaded and installed the OpenVPN client for the device.
-3. Imported the VPN profile and connected using the admin credentials.
+2. Downloaded and sent the OpenVPN client with embedded profile to two of my friends to test it out.
 
 ---
 
 ## Testing and Validation
 
 ### Description  
-Verified VPN connectivity and security.
+Verified VPN connectivity and security on friends devices.
 
 ### Steps  
 1. Tested connection by logging in from a remote device.
 2. Checked IP address to confirm traffic was routed through the VPN.
 
-### Commands Used  
-```bash
-curl ifconfig.me
-```
 
 ---
 
