@@ -30,31 +30,34 @@ Briefly secured an Ubuntu system by updating packages, managing users, and confi
 ## Outcome:
 Enhanced system security by reducing the attack surface and reinforcing access control policies.
 
-
+---
 
 # Deploying a Secure VPN Server on AWS
 
 [Check out Project 2!](projects/project2.md)
 
 ## Overview:
-Deployed and configured a secure VPN server on AWS to provide encrypted access to cloud resources, ensuring secure data transmission and remote connectivity.
+Deployed and configured a secure VPN server on AWS to provide encrypted access to cloud resources, ensuring secure data transmission and remote connectivity while managing AWS billing challenges.
 
 ## Key Objectives:
-- Launch an EC2 instance and configure a VPN server.
-- Implement SSH key-based authentication for secure remote access.
-- Configure VPN traffic routing to enhance security.
+- Launch and configure an AWS EC2 instance with OpenVPN Access Server.
+- Configure security groups, traffic routing, and VPN user permissions.
+- Monitor AWS billing and set up alerts to avoid exceeding free tier limits.
 
 ## Steps Taken:
-1. Created and configured an AWS EC2 instance.
-2. Installed and set up OpenVPN Access Server.
-3. Generated and applied SSH key pairs for authentication.
-4. Configured VPN routing and verified secure client connections.
+1. Launched and configured an AWS EC2 instance from the OpenVPN Access Server image.
+2. Installed and configured OpenVPN Access Server for secure traffic routing.
+3. Configured security groups and applied a static Elastic IP for stable client access.
+4. Created user groups and profiles in the OpenVPN admin panel.
+5. Tested and validated secure VPN connections and set up billing alerts in AWS.
 
 ## Technologies Used:
-- AWS EC2, AWS Free Tier
+- AWS EC2, AWS Free Tier, Elastic IPs, CloudWatch
 - OpenVPN Access Server
 - SSH (Secure Shell)
 
 ## Outcome:
-Successfully implemented a secure, scalable VPN solution on AWS, reducing the risk of unauthorized access and ensuring secure communication over the network.
+Successfully deployed a secure, scalable VPN solution on AWS, enhancing security for remote access to cloud resources while managing AWS costs through monitoring and billing alerts.
+
+---
 
