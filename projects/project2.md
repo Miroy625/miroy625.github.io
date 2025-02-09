@@ -23,8 +23,9 @@ Installed and configured OpenVPN Access Server on a AWS EC2 instance.
 2. Ensure the instance size is **t2.micro** to remain within the free tier.
 3. Connect to the instance via SSH using the created private key.
 
-###![awsvpnscrn1](media/awsvpn1.png)
-Here is a screenshot of the EC2 being created. 
+![awsvpnscrn1](media/awsvpn1.png)
+![awsvpnscrn1](media/awsvpn2.png)
+Here is a screenshot of the EC2 instance being created & the ssh information. {public ip and instance id blocked out for obvious reasons)
 
 Commands Used  
 ```bash
@@ -32,6 +33,8 @@ cd Downloads/
 ssh -i X448.pem openvpnas@<public-ip-address>
 sudo passwd openvpn
 ```
+![awsvpnscrn1](media/awsvpn3.png)
+Here is a screen of SSH sucessfully connected & initial configuration finished.
 
 ### Installed Packages  
 - OpenVPN Access Server for VPN management and encrypted connectivity.
