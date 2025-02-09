@@ -13,40 +13,23 @@ image: "media/securityportfoliobanner.png"
 
 ---
 
-## System Setup and EC2 Instance Deployment
-
-### Description  
-Created and configured an AWS EC2 instance to host the VPN server.
-
-### Steps  
-1. Visit [aws.amazon.com](https://aws.amazon.com) and create a free AWS account.
-2. Log in to the AWS Management Console as a root user.
-3. Navigate to **Services** > **EC2** and click "Launch Instance."
-4. Select **Amazon Linux 2** as the machine image.
-5. Choose **t2.micro** instance (free tier eligible).
-6. Create and download a key pair for secure access (`vpn_key.pem`).
-7. Launch the instance and verify that it's running.
-
-### Commands Used  
-```bash
-ssh -i vpn_key.pem ec2-user@<public-ip-address>
-```
-
----
-
 ## VPN Installation and Configuration
 
 ### Description  
-Installed and configured OpenVPN Access Server on the AWS EC2 instance.
+Installed and configured OpenVPN Access Server on a AWS EC2 instance.
 
 ### Steps  
-1. Launch another EC2 instance from the AWS Marketplace using the "OpenVPN Access Server" image.
+1. Launch EC2 instance from the AWS Marketplace using the "OpenVPN Access Server" image.
 2. Ensure the instance size is **t2.micro** to remain within the free tier.
-3. Connect to the instance via SSH using the private key.
+3. Connect to the instance via SSH using the created private key.
 
-### Commands Used  
+###![awsvpnscrn1](media/awsvpn1.png)
+Here is a screenshot of the EC2 being created. 
+
+Commands Used  
 ```bash
-sudo ssh -i vpn_key.pem ubuntu@<public-ip-address>
+cd Downloads/
+ssh -i X448.pem openvpnas@<public-ip-address>
 sudo passwd openvpn
 ```
 
